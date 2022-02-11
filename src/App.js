@@ -1,19 +1,10 @@
-import React from "react";
-import { Route, Link } from 'react-router-dom';
-import Home from './components/Home';
-import About from './components/About';
+import React from 'react';
 
-function App() {
-  return (
-    <div>
-      <ul>
-        <li><Link to="/">홈</Link></li>
-        <li><Link to="/about">소개</Link></li>
-      </ul>
-      <Route path="/" exact={true} component={Home} />
-      <Route path={['/about', '/hi']} component={About} />
-    </div>
-  );
+const App = () => {
+  // 라우터 설정
+  // 경로는 '/카테고리명' 으로 
+  // '/'경로는 전체 카테고리를 나타내므로 뒤의 카테고리명은 선택적 => ? (물음표) 사용 
+  return <h2>여기에 컴포넌트 불러오기</h2>
 };
 
 export default App;
