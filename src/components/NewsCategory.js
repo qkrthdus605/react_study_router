@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 // 상단 카테고리
 
@@ -45,7 +46,7 @@ const CategoriesBlock = styled.div`
     overflow-x: auto;
   }
 `;
-const Category = styled.div`
+const Category = styled(NavLink)`
   font-size: 1.125rem;
   cursor: pointer;
   white-space: pre;
@@ -68,6 +69,13 @@ const NewsCategories = () => {
         // 카테고리 배열 내의 객체들의 한글로된 카테고리와 실제 카테고리 값 연결
         // 브라우저에는 한글 카테고리 이름이 표기되도록
         // <Category></Category>
+        <Category
+          key={c.name} 
+          exact={c.name === 'all'}
+          to={c.name === 'all' ? '/' : `/${c.name}`}
+        >
+          {c.text}
+        </Category>
       ))}
     </CategoriesBlock>
   );

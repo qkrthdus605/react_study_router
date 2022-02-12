@@ -33,22 +33,30 @@ const NewsItemBlock = styled.div`
   }
 `;
 
-const NewsItem = () => {
+const NewsItem = ({article}) => {
   // article이라는 객체를 props로 통째로 받아오기
   // 그 중 우리가 사용할 속성들 title, description, url, urlToImage
-  
+  const { title, description, url, urlToImage } = article;  
+
   return (
     <NewsItemBlock>
       {urlToImage && (
         <div className="thumbnail">
-          {/* 썸네일 url이미지, a태그/img태그 */}
+          {/* 썸네일 url이미지, a태그 /img태그 */}
+          <a href={url} target="_self" >
+            <img src={urlToImage} alt="thumbnail" />
+          </a>
         </div>
       )}
       <div className="contents">
         <h2>
           {/* 제목 및 링크, a태그 */}
+          <a href={url} target="_self" >
+            {title}
+          </a>
         </h2>
         {/* 내용, p태그 */}
+        <p>{description}</p>
       </div>
     </NewsItemBlock>
   );
